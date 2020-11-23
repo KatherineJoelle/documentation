@@ -46,6 +46,12 @@ _Alpha Clip_ sets that each part of a model is either 100% opaque or 100% transp
 
 Unless you specifically want to be able to have an intermediate level of transparency, it's always better to use _Alpha Clip_.
 
+You can create different transparent materials with this simple node set-up. In Blender, combine a Principled BSDF node with a Material Output node. Set the first node to your desired color, specularity, roughness, (etc.) and, in the lower part of the node, reduce the alpha factor from 1 to something between 0 and 1. For a water or glass-like effect make sure to use blend mode _Alpha Blend_.
+
+You can also use one image texture with alpha to obtain a variety of transparent colors. Reduce the opacity of your image texture in an image editor such as Photoshop or combine it in Blender with a transparent shader. In Blender, combine an Image Texture node with a Principled BSDF node and a Material Output. Open your image in the first node and connect its color to _Base Color_ and its alpha to _Alpha_ on the Principled BSDF node, and adjust the properties to your preference. 
+
+By using images with alpha and _Alpha Clip_ you can display leaves, logos and text with fewer polygons.
+
 ## Emissive materials
 
 You can also make a material _emissive_. Emissive materials cast their own light. Note that when rendered, they don't actually illuminate nearby objects in the scene, they just seem to have a blurred glow around them.
